@@ -22,3 +22,9 @@ Impacts
 [https://portswigger.net/research/exploiting-cors-misconfigurations-for-bitcoins-and-bounties]
 [https://quitten.github.io/StackStorm/]
 [http://blog.saynotolinux.com/blog/2016/08/15/jetbrains-ide-remote-code-execution-and-local-file-disclosure-vulnerability-analysis/]
+
+Prevention
+- Proper configration of cross-origin requests
+- Only allow trusted sites
+- Avoid whitelisted null
+- Avoid wildcard in internal networks
