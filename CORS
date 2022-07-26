@@ -3,4 +3,22 @@ It extends and adds flexibility to the same-origin policy (SOP).
 However, it also provides potential for cross-domain attacks, if a website's CORS policy is poorly configured and implemented. 
 CORS is not a protection against cross-origin attacks such as cross-site request forgery (CSRF). 
 
+Testing for CORS misconfigration
+1. Add the Origin header in the request can check if it reflects back in the response. Example - Origin - https://example.com
+2. Add the Origin header in the request and use null. Example - Origin:null
+3. Change the origin header to the one that begins with the origin of the site and the later our malicious site Example -  Origin: websecurity.com.malicious.com
+4. Change the origin header to the one that ends with the origin of the site Example -  Origin: websecurity.com.malicious.com
 
+Key points
+- It is because of dynamic generation that CORS is vulnerable
+- If you observe that the application accepts Origin at the start of end of the Origin host. Try to look for a subdomain and a way to exploit it, which could be XSS or any other way to exloitataion
+- ACAO:null is more dangerous than wildcard [Access-control-allow-origin]
+
+Impacts
+- Confidentiality : The response of the application could lead to data exposure
+- Integrity
+- Avaiability 
+- Remote code execution : Blogs below where CORS lead to RCE
+[https://portswigger.net/research/exploiting-cors-misconfigurations-for-bitcoins-and-bounties]
+[https://quitten.github.io/StackStorm/]
+[http://blog.saynotolinux.com/blog/2016/08/15/jetbrains-ide-remote-code-execution-and-local-file-disclosure-vulnerability-analysis/]
